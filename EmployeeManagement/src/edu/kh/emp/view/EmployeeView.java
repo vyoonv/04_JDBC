@@ -3,6 +3,7 @@ package edu.kh.emp.view;
 import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 import edu.kh.emp.model.service.EmployeeService;
@@ -95,68 +96,6 @@ public class EmployeeView {
 	}
 	
 
-
-
-	/** 사번이 일치하는 사원 정보 삭제 
-	 * 
-	 */
-	private void deleteEmployee() throws Exception {
-		
-		System.out.println("< 사번이 일치하는 사원 정보 삭제 > ");
-		
-		int empId = inputEmpId(); 
-		
-		System.out.print("정말 삭제하시겠습니까? (Y/N) : ");
-		char input = sc.next().toUpperCase().charAt(0);
-		// y/n 대소문자 구분없이 입력 ok
-		
-		if(input == 'Y') {
-			// 삭제 수행하는 서비스 호출 
-			int result = service.deleteEmployee(empId); 
-			
-			if(result > 0 ) {
-				System.out.println("삭제되었습니다");
-			} else {
-				System.out.println("사번이 일치하는 사원이 존재하지 않습니다");
-				
-			}
-			
-			
-			
-		} else {
-			
-			System.out.println("취소되었습니다");
-			
-		}
-		
-		
-		
-		
-		
-	}
-	
-	
-	/**
-	 * 입력받은 부서와 일치하는 모든 사원 정보 조회 
-	 * @throws Exception 
-	 * 
-	 */
-	private void selectDeptEmp() throws Exception {
-		
-		System.out.println("< 부서와 일치하는 모든 사원 정보 조회 >");
-		
-		System.out.print("부서명 입력 : ");
-		String deptTitle = sc.next(); 
-			
-		List<Employee> empList = service.selectDeptEmp(deptTitle); 
-		
-		printAll(empList); 
-	}
-
-
-
-
-
 	// 보조 메서드 
 	/** 사번을 입력받아 반환하는 메서드
 	 * @return empId
@@ -171,8 +110,6 @@ public class EmployeeView {
 	}
 	
 
-
-
 	/**
 	 * 전체 사원 정보 조회 View 
 	 */
@@ -185,26 +122,6 @@ public class EmployeeView {
 		printAll(empList); 
 	}
 	
-	
-
-	/** 부서별 급여 합 전체 조회
-	 * @throws Exception
-	 */
-	private void selectDeptTotalSalary() throws Exception {
-		
-		System.out.println("< 부서별 급여 합 전체 조회 >");
-		
-		HashMap<String, Integer> hashSalary = service.selectDeptTotalSalary(); 
-		
-		System.out.println(hashSalary);
-
-		
-		
-	}
-	
-	
-	
-
 	/**
 	 * 사원 정보 추가 View 
 	 */
@@ -260,8 +177,7 @@ public class EmployeeView {
 		
 		
 	}
-	
-	
+		
 	
 	/**
 	 * 사번이 일치하는 사원 정보 조회 
@@ -282,63 +198,6 @@ public class EmployeeView {
 		
 		
 	}
-	
-	
-	
-
-
-	/** 주민등록번호가 일치하는 사원 정보 조회 
-	 * @throws Exception 
-	 * 
-	 */
-	private void selectEmpNo() throws Exception {
-		
-		System.out.println("< 주민등록번호가 일치하는 사원 정보 조회 >");
-		
-		System.out.print("주민등록번호 입력 : ");
-		String inputEmpNo = sc.next(); 
-		
-		Employee emp = service.selectEmpNo(inputEmpNo);
-		
-		printOne(emp); 	
-	}
-
-	
-	
-
-	private void selectJobAvgSalary() {
-		
-		
-		
-		
-	}
-	
-	
-	
-	
-
-	
-	/** 입력 받은 급여 이상을 받는 모든 사원 정보 조회
-	 * 
-	 */
-	private void selectSalaryEmp() throws Exception {
-		
-		System.out.println("< 입력 받은 급여 이상을 받는 모든 사원 정보 조회 >");
-		
-		System.out.print("급여 입력 : ");
-		int salary = sc.nextInt(); 
-		sc.nextLine(); 
-		
-		List<Employee> empList = service.selectSalaryEmp(salary); 
-		
-		printAll(empList); 
-		
-		
-		
-	}
-	
-	
-	
 	
 	
 	/**
@@ -379,12 +238,135 @@ public class EmployeeView {
 		
 	}
 	
+		
+	/** 사번이 일치하는 사원 정보 삭제 
+	 * 
+	 */
+	private void deleteEmployee() throws Exception {
+		
+		System.out.println("< 사번이 일치하는 사원 정보 삭제 > ");
+		
+		int empId = inputEmpId(); 
+		
+		System.out.print("정말 삭제하시겠습니까? (Y/N) : ");
+		char input = sc.next().toUpperCase().charAt(0);
+		// y/n 대소문자 구분없이 입력 ok
+		
+		if(input == 'Y') {
+			// 삭제 수행하는 서비스 호출 
+			int result = service.deleteEmployee(empId); 
+			
+			if(result > 0 ) {
+				System.out.println("삭제되었습니다");
+			} else {
+				System.out.println("사번이 일치하는 사원이 존재하지 않습니다");
+				
+			}
+			
+			
+			
+		} else {
+			
+			System.out.println("취소되었습니다");
+			
+		}
+		
+		
+		
+		
+		
+	}
+	
+	
+	/**
+	 * 입력받은 부서와 일치하는 모든 사원 정보 조회 
+	 * @throws Exception 
+	 * 
+	 */
+	private void selectDeptEmp() throws Exception {
+		
+		System.out.println("< 부서와 일치하는 모든 사원 정보 조회 >");
+		
+		System.out.print("부서명 입력 : ");
+		String departmentTitle = sc.next();  
+		
+		printAll(service.selectDeptEmp(departmentTitle)); 
+	}
+
+
+	/** 입력 받은 급여 이상을 받는 모든 사원 정보 조회
+	 * 
+	 */
+	private void selectSalaryEmp() throws Exception {
+		
+		System.out.println("< 입력 받은 급여 이상을 받는 모든 사원 정보 조회 >");
+		
+		System.out.print("급여 입력 : ");
+		int salary = sc.nextInt(); 
+		
+		printAll(service.selectSalaryEmp(salary)); 
+		
+		
+		
+	}
+	
+
+	/** 부서별 급여 합 전체 조회
+	 * @throws Exception
+	 */
+	private void selectDeptTotalSalary() throws Exception {
+		
+		System.out.println("< 부서별 급여 합 전체 조회 >");
+		
+		Map<String, Integer> map = service.selectDeptTotalSalary(); 
+		
+		for(String key : map.keySet()) {
+			System.out.println(key + " : " + map.get(key));
+		}
+
+		
+		
+	}
+	
+
+	/** 주민등록번호가 일치하는 사원 정보 조회 
+	 * @throws Exception 
+	 * 
+	 */
+	private void selectEmpNo() throws Exception {
+		
+		System.out.println("< 주민등록번호가 일치하는 사원 정보 조회 >");
+		
+		System.out.print("주민등록번호 입력 : ");
+		String EmpNo = sc.next(); 
+		
+		Employee emp = service.selectEmpNo(EmpNo);
+		
+		printOne(emp); 	
+	}
+
+	
+	/**
+	 * 직급별 급여 평균 조회 
+	 */
+	private void selectJobAvgSalary() throws Exception{
+		
+		System.out.println("<직급별 급여 평균 조회>");
+		Map<String, Double> map = service.selectJobAvgSalary(); 
+		
+		for(String key : map.keySet()) {
+			System.out.println(key + " : " + map.get(key) + "원");
+		}
+		
+		
+		
+	}
 	
 	
 	
 	
-	
-	
+
+
 	
 	
 	// 보조 메서드
