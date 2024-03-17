@@ -388,7 +388,7 @@ public class EmployeeDAO {
 			
 			
 		} finally {
-			close(pstmt); 
+			close(stmt); 
 		}
 		
 		
