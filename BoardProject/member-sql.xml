@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>member-sql.xml file!!</comment>
+	
+	<entry key = "selectMemberList">
+		SELECT MEMBER_ID, MEMBER_NM, MEMBER_GENDER
+		FROM "MEMBER"
+		WHERE UNREGISTER_FL ='N'
+	</entry>
+	
+	<entry key = "updateMember">
+		UPDATE "MEMBER" SET
+		MEMBER_NM = ?,
+		MEMBER_GENDER = ?
+		WHERE MEMBER_NO = ?
+	</entry>
+	
+	<entry key = "updatePassword">
+		UPDATE "MEMBER" SET
+		MEMBER_PW = ?
+		WHERE MEMBER_PW = ? 
+		AND MEMBER_NO = ?
+	</entry>
+	
+	<entry key = "unRegisterMember">
+		UPDATE "MEMBER" SET
+		UNREGISTER_FL = 'Y'
+		WHERE MEMBER_NO = ?
+		AND MEMBER_PW = ?
+	</entry>
+	
+</properties>
