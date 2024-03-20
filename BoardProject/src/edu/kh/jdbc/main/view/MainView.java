@@ -74,8 +74,7 @@ public class MainView {
 					default : System.out.println("\n=== 메뉴 번호만 입력해주세요 ===\n");
 					
 					}
-					
-					
+										
 				}
 				
 				
@@ -84,15 +83,13 @@ public class MainView {
 				sc.nextLine(); //입력 버퍼에 잘못된 문자열 제거 
 				input = -1; //while문 종료 방지 
 				
-				
 			} 
-			
-			
 			
 		} while (input != 0); 
 				
 	}
 
+	
 
 	/**
 	 * 로그인  

@@ -25,8 +25,7 @@ public class BoardDAO {
 			
 			prop = new Properties(); 			
 			prop.loadFromXML(new FileInputStream("board-sql.xml"));
-			
-			
+					
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -146,6 +145,156 @@ public class BoardDAO {
 			result = pstmt.executeUpdate(); 
 			
 	
+			
+		} finally {
+			close(pstmt); 
+		}
+		
+		
+		return result;
+	}
+
+	/** 게시글 수정 
+	 * @param conn
+	 * @param boardTitle
+	 * @param boardContent
+	 * @param boardNo
+	 * @return result 
+	 */
+	public int updateBoard(Connection conn, String boardTitle, String boardContent, int boardNo) throws Exception {
+		
+		int result = 0; 
+		
+		try {
+			
+			String sql = prop.getProperty("updateBoard"); 
+			
+			pstmt = conn.prepareStatement(sql); 
+			pstmt.setString(1,  boardTitle);
+			pstmt.setString(2, boardContent);
+			pstmt.setInt(3, boardNo);
+			
+			result = pstmt.executeUpdate(); 
+			
+			
+		} finally {
+			close(pstmt); 
+		}
+			
+		return result;
+	}
+
+	/** 다음 게시글 번호 조회 SQL 수행 DAO
+	 * @param conn
+	 * @return boardNo
+	 */
+	public int nextBoardNo(Connection conn) throws Exception {
+		
+		int boardNo = 0; 
+		
+		try {
+			
+			String sql = prop.getProperty("nextBoardNo"); 
+			
+			stmt = conn.createStatement(); 
+			rs = stmt.executeQuery(sql); 
+			
+			if(rs.next()) {
+				boardNo = rs.getInt(1);  
+			}
+			
+		} finally {
+			
+			close(rs); 
+			close(stmt); 
+			
+		}	
+		
+		return boardNo;
+	}
+
+	/** 게시글 삽입 DAO
+	 * @param conn
+	 * @param boardTitle
+	 * @param boardContent
+	 * @param memberNo
+	 * @param boardNo
+	 * @return result 
+	 */
+	public int insertBoard(Connection conn, String boardTitle, String boardContent, int memberNo, int boardNo) throws Exception {
+		
+		int result = 0; 
+		
+		try {
+			
+			String sql = prop.getProperty("insertBoard");
+			
+			pstmt = conn.prepareStatement(sql); 
+			pstmt.setInt(1, boardNo);
+			pstmt.setString(2, boardTitle);
+			pstmt.setString(3, boardContent); 
+			pstmt.setInt(4, memberNo); 
+			
+			result = pstmt.executeUpdate(); 
+			
+				
+		} finally {
+			close(pstmt); 
+		}
+			
+		return result;
+	}
+
+	/** 본인 게시글 확인용 
+	 * @param conn
+	 * @param boardNo
+	 * @param memberNo
+	 * @return
+	 */
+	public int checkBoardNo(Connection conn, int boardNo, int memberNo) throws Exception {
+		
+		int check = 0; 
+		
+		try {
+			
+			String sql = prop.getProperty("checkBoardNo"); 
+			
+			pstmt = conn.prepareStatement(sql); 
+			pstmt.setInt(1, boardNo); 
+			pstmt.setInt(2, memberNo);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				check = rs.getInt(1); 
+			}
+			
+		} finally {
+			
+			close(pstmt); 
+		}
+		
+		return check;
+	}
+
+	/** 게시글 삭제 
+	 * @param conn
+	 * @param boardNo
+	 * @return result 
+	 */
+	public int deleteBoard(Connection conn, int boardNo) throws Exception {
+		
+		int result = 0; 
+		
+		try {
+			
+			String sql = prop.getProperty("deleteBoard"); 
+			
+			pstmt = conn.prepareStatement(sql); 
+			pstmt.setInt(1, boardNo);
+			
+			result = pstmt.executeUpdate(); 
+					
 			
 		} finally {
 			close(pstmt); 
