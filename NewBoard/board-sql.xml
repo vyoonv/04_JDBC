@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key = "selectAllBoard">
+		SELECT B_NO, B_TITLE, MEM_NM, CREATE_DT, READ_COUNT, 
+				(SELECT COUNT(*) FROM "COMMENT" SUB
+				WHERE MAIN.B_NO = SUB.B_NO
+				AND DELETE_FL = 'N') COM_COUNT 
+		FROM "BOARD" MAIN
+		JOIN "MEMBER" USING(MEM_NO)
+		WHERE DELETE_FL = 'N'
+		ORDER BY B_NO DESC
+	</entry>
+</properties>

@@ -48,7 +48,7 @@ public class MainView {
 					
 				} else { //로그인 o
 					
-					System.out.println("\n☆★☆☆★☆ MY PAGE ☆★☆☆★☆\n");
+					System.out.println("\n☆★☆☆★☆ QUEENS ☆★☆☆★☆\n");
 					System.out.println("1. MY PAGE");
 					System.out.println("2. BOARD");
 					System.out.println("3. SIGN OUT");
@@ -60,8 +60,8 @@ public class MainView {
 					
 					switch(input) {
 					
-					case 1 : //memberView.memberMenu(); break;  //회원기능 view  
-					case 2 : //boardView.boardMenu(); break; 
+					case 1 : memberView.memberMenu(); break;  //회원기능 view  
+					case 2 : boardView.boardMenu(); break; 
 					case 3 : System.out.println("\nSIGNED OUT\n");
 					         Session.loginMember = null; //참조하고 있던 로그인 회원 객체 없앰
 					         break; 

@@ -9,8 +9,10 @@ public class Member {
 	private String memGender; 
 	private String enrollDate; 
 	private String unregisterFlag; 
-	private String followId; 
-	private String message; 
+	private String followerId; 
+	private String followingId;
+	private String sendMessage;
+	private String getMessage;
 	
 	public Member() {}
 
@@ -70,22 +72,39 @@ public class Member {
 		this.unregisterFlag = unregisterFlag;
 	}
 
-	public String getFollowId() {
-		return followId;
+	public String getFollowerId() {
+		return followerId;
 	}
 
-	public void setFollowId(String followId) {
-		this.followId = followId;
+	public void setFollowerId(String followerId) {
+		this.followerId = followerId;
 	}
 
-	public String getMessage() {
-		return message;
+	public String getFollowingId() {
+		return followingId;
 	}
 
-	public void setMessage(String message) {
-		this.message = message;
+	public void setFollowingId(String followingId) {
+		this.followingId = followingId;
 	}
-	
+
+	public String getSendMessage() {
+		return sendMessage;
+	}
+
+	public void setSendMessage(String sendMessage) {
+		this.sendMessage = sendMessage;
+	}
+
+	public String getGetMessage() {
+		return getMessage;
+	}
+
+	public void setGetMessage(String getMessage) {
+		this.getMessage = getMessage;
+	}
+
+
 	
 	
 	
