@@ -1,7 +1,15 @@
+<<<<<<< HEAD
 INDEX VERSION 1.134+C:\workspace\Java\04_JDBC\.metadata\.plugins\org.eclipse.jdt.core
 1865797976.index
 1388914327.index
 2138163863.index
 231308879.index
 4277636647.index
+=======
+INDEX VERSION 1.134+C:\workspace\04_JDBC\.metadata\.plugins\org.eclipse.jdt.core
+1250140105.index
+>>>>>>> 7ed9de57630fd97ab1bbddb9fb9c1d8e070406fb
 3731151734.index
+1388914327.index
+4277636647.index
+1865797976.index

@@ -196,13 +196,7 @@ public class BoardView {
 				}
 				
 			}
-			
-			
-			
-			
-			
-			
-			
+				
 			
 		} catch(Exception e) {
 			System.out.println("\n**** 게시글 상세 조회 중 예외 발생 ****\n");
