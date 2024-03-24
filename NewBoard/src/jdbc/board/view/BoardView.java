@@ -46,7 +46,7 @@ public class BoardView {
 				case 3: //insertBoard(); break; 
 				
 				case 9:
-					System.out.println("\n==== BACK TO QUEENS ====\n");
+					System.out.println("\n==== BACK TO MAIN ====\n");
 					break;
 				
 				case 0:

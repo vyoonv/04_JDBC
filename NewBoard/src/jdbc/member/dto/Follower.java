@@ -9,29 +9,34 @@ public class Follower {
 
 	private Scanner sc = new Scanner(System.in); 
 	
-	
-	private String followerId; 
-	private String follwingId; 
+	private int memNo; 
+	private String follwerId; 
+	private String followerName;
 	private String sendMessage;
 	private String getMessage;
 	
 	public Follower() {}
 
-	public String getFollowerId() {
-		return followerId;
+	
+	public String getFollwerId() {
+		return follwerId;
 	}
 
-	public void setFollowerId(String followerId) {
-		this.followerId = followerId;
+
+	public void setFollwerId(String follwerId) {
+		this.follwerId = follwerId;
 	}
 
-	public String getFollwingId() {
-		return follwingId;
+
+	public String getFollowerName() {
+		return followerName;
 	}
 
-	public void setFollwingId(String follwingId) {
-		this.follwingId = follwingId;
+
+	public void setFollowerName(String followerName) {
+		this.followerName = followerName;
 	}
+
 
 	public String getSendMessage() {
 		return sendMessage;
@@ -49,6 +54,13 @@ public class Follower {
 		this.getMessage = getMessage;
 	}
 
+	public int getMemNo() {
+		return memNo;
+	}
+
+	public void setMemNo(int memNo) {
+		this.memNo = memNo;
+	}
 
 	
 	

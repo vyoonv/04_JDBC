@@ -13,6 +13,8 @@ public class MemberView {
 	private MemberService mService = new MemberService(); 
 	
 	private Member member = new Member(); 
+	
+	private FollowerView followerView = new FollowerView(); 
 		
 
 	public void memberMenu() {
@@ -25,7 +27,7 @@ public class MemberView {
 				
 				System.out.println("\n☆★☆☆★☆ MY PAGE ☆★☆☆★☆\n");
 				System.out.println("1. MY INFO");
-				System.out.println("2. VIEW ALL MEMBER");
+				System.out.println("2. VIEW FOLLOWERS");
 				System.out.println("3. UPDATE MY INFO"); 
 
 				System.out.println("8. UNREGISTER");	
@@ -39,7 +41,7 @@ public class MemberView {
 				switch(input) {
 				
 				case 1 :  selectMyInfo(); break; 
-				case 2 :  //followerView.mainMenu(); break;
+				case 2 :  followerView.mainMenu(); break;
 				case 3 :  updateInfo(); break;  
 
 				case 8 :  //if(unRegisterMenu()) return; break; 
